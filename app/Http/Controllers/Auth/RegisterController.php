@@ -81,11 +81,11 @@ class RegisterController extends Controller
             $data = $request->input();
             $val = $this->validator($data);
             if($val->fails()){
-                dd($val);
+                //dd($val);
                 return redirect('register')->withErrors($val);
             }else{
                 $this->create($data);
-                return redirect('added');
+                return redirect('added')->with('username', $data['username']);
             }
         }
         return view('auth.register');
