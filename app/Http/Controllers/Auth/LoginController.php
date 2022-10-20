@@ -51,4 +51,9 @@ class LoginController extends Controller
         }
         return view("auth.login");
     }
+
+    public function username()
+    {
+        return 'name';
+    }
 }
