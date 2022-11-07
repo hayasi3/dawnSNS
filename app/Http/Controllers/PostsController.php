@@ -29,4 +29,13 @@ class PostsController extends Controller
         ]);
         return back();
     }
+
+    public function delete($posts)
+    {
+        DB::table('posts')
+            ->where('posts', $posts)
+            ->delete();
+ 
+        return redirect('/index');
+    }
 }
