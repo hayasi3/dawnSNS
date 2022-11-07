@@ -43,4 +43,4 @@ Route::get('/logout', 'Auth\LoginController@logout');
 
 Route::post('/post/create', 'PostsController@create');
 
-Route::get('post/{id}/delete', 'PostsController@index');
+Route::get('post/{id}/delete', 'PostsController@delete');
