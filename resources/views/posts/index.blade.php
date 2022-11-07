@@ -7,9 +7,14 @@
     <input type="submit" value="投稿する">
 </form>
 
+<form action="/post/{id}/delete" method="post">
+    @csrf
+    <input type="hidden" name="id" value="{{$post->id}}">
+    <input type="submit" value="削除">
+</form>
+
 @foreach($posts as $post)
 <p>{{ $post->posts}} {{ $post->username}}</p>
-<a class="btn btn-danger" href="/post/{{ $post->id }}/delete" onclick="return confirm('こちらのつぶやきをを削除してもよろしいでしょうか？')">削除</a>
 @endforeach
 
 @endsection
