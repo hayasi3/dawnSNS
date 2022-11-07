@@ -30,10 +30,10 @@ class PostsController extends Controller
         return back();
     }
 
-    public function delete($posts)
-    {
+    public function delete(Request $request){
+        $id = $request->id;
         DB::table('posts')
-            ->where('posts', $posts)
+            ->where('id', $id)
             ->delete();
 
         return redirect('/top');

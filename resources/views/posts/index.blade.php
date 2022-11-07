@@ -7,14 +7,15 @@
     <input type="submit" value="投稿する">
 </form>
 
-<form action="/post/{id}/delete" method="post">
+@foreach($posts as $post)
+<p>{{ $post->posts}} {{ $post->username}}</p>
+
+<form action="/post/delete" method="post">
     @csrf
     <input type="hidden" name="id" value="{{$post->id}}">
     <input type="submit" value="削除">
 </form>
 
-@foreach($posts as $post)
-<p>{{ $post->posts}} {{ $post->username}}</p>
 @endforeach
 
 @endsection
