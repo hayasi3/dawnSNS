@@ -25,7 +25,7 @@
         <h1><a href="/top"><img src="images/main_logo.png"></a></h1>
             <div id="">
                 <div id="icon">
-                    <p>{{ session('username') }}さん<img src="images/dawn.png"></p>
+                    <p>{{ $user->username}}さん<img src="images/dawn.png"></p>
                 <div>
                 <ul>
                     <li><a href="/top">ホーム</a></li>

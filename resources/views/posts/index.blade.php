@@ -6,4 +6,9 @@
     <input type="text" name="newpost" placeholder="なにをつぶやこうか・・・">
     <input type="submit" value="投稿する">
 </form>
+
+@foreach($posts as $post)
+<p>{{ $post->posts}} {{ $post->username}}</p>
+@endforeach
+
 @endsection

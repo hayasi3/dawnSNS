@@ -10,8 +10,14 @@ class PostsController extends Controller
 {
     //
     public function index(){
-        $posts = DB::table('posts')->get();
-        return view('posts.index',['posts'=>$posts]);
+        $posts = DB::table('posts')
+        ->join('users','posts.user_id','users.id')
+        ->get();
+
+        $user = DB::table('users')
+        ->where('id',Auth::id())
+        ->first();
+        return view('posts.index',['posts'=>$posts,'user'=>$user]);
     }
 
     public function create(Request $request){
