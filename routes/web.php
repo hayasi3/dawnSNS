@@ -43,4 +43,6 @@ Route::get('/logout', 'Auth\LoginController@logout');
 
 Route::post('/post/create', 'PostsController@create');
 
-Route::get('post/{id}/delete', 'PostsController@delete');
+Route::delete('post/delete', 'PostsController@delete');
+
+Route::put('post/update', 'PostsController@update');
