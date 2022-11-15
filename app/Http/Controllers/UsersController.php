@@ -9,10 +9,6 @@ use Auth;
 class UsersController extends Controller
 {
     //
-    public function index(){
-        
-    }
-
     public function profile(){
         $user = DB::table('users')
         ->where('id',Auth::id())
@@ -22,4 +18,12 @@ class UsersController extends Controller
     public function search(Request $request){
         return view('users.search');
     }
+
+    public function index(Request $request){
+        DB::table('users')
+        ->where('id',Auth::id())
+        ->first();
+        return view('users.search');
+    }
+
 }
