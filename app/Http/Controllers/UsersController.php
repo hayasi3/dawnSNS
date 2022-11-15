@@ -9,14 +9,8 @@ use Auth;
 class UsersController extends Controller
 {
     //
-    public function index(Request $request){
-        DB::table('posts')
-        ->insert([
-            'user_id'=>Auth::id(),
-            'posts'=>$request->input('newpost'),
-            'created_at'=>now(),
-        ]);
-        return view('posts.index');
+    public function index(){
+        
     }
 
     public function profile(){
@@ -25,7 +19,7 @@ class UsersController extends Controller
         ->first();
         return view('users.profile',compact('user'));
     }
-    public function search(){
+    public function search(Request $request){
         return view('users.search');
     }
 }
