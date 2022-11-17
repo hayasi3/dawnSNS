@@ -16,6 +16,9 @@ class UsersController extends Controller
         return view('users.profile',compact('user'));
     }
     public function search(Request $request){
+        DB::table('users')
+        ->where('id',Auth::id())
+        ->first();
         return view('users.search');
     }
 
@@ -24,7 +27,7 @@ class UsersController extends Controller
         ->select('users.id','users.username','users.images')
         ->get();
 
-        return view('users.index');
+        return view('users.search',['user'=>$user]);
     }
 
 }
