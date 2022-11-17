@@ -7,4 +7,9 @@
     <input type="image" src="/images/post.png" alt="送信">
 </form>
 
+@foreach($users as $user)
+<p>{{ $user -> users }}</p>
+
+@endforeach
+
 @endsection
