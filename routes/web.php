@@ -47,4 +47,4 @@ Route::delete('post/delete', 'PostsController@delete');
 
 Route::put('post/update', 'PostsController@update');
 
-Route::post('/post/search', 'PostsController@search');
+Route::post('/post/search', 'UsersController@search');

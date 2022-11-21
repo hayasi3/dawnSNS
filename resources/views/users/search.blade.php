@@ -7,9 +7,10 @@
     <input type="image" src="/images/post.png" alt="送信">
 </form>
 
-@foreach($users as $user)
-<p>{{ $user -> users }}</p>
-
-@endforeach
+@forelse($users as $user)
+    <p>{{ $user -> username }}</p>
+@empty
+    <p>結果はありませんでした</p>
+@endforelse
 
 @endsection

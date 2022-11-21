@@ -10,11 +10,11 @@ class UsersController extends Controller
 {
     //
     public function index(Request $request){
-        $user = DB::table('users')
+        $users = DB::table('users')
         ->select('users.id','users.username','users.images')
         ->get();
 
-        return view('users.search',['user'=>$user]);
+        return view('users.search',['users'=>$users]);
     }
 
     public function profile(){
@@ -23,12 +23,18 @@ class UsersController extends Controller
         ->first();
         return view('users.profile',compact('user'));
     }
-    
+
     public function search(Request $request){
-        DB::table('users')
-        ->where('user_id',Auth::user())
-        ->first();
-        return view('users.search');
+        $name = $request->input('search');
+        $users = DB::table('users')
+        ->select('users.id','users.username','users.images')
+        ->where('username',$name)
+        ->get();
+        $user = DB::table('users')
+        ->where('id',Auth::id(),'LIKE',"%$name%")
+        ->get();
+
+        return view('users.search',['users'=>$users,'user'=>$user]);
     }
 
 }
