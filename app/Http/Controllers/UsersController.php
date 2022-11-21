@@ -30,11 +30,11 @@ class UsersController extends Controller
         ->select('users.id','users.username','users.images')
         ->where('username',$name)
         ->get();
-        $user = DB::table('users')
-        ->where('id',Auth::id(),'LIKE',"%$name%")
+        $users = DB::table('users')
+        ->where('username','LIKE',"%".$name."%")
         ->get();
 
-        return view('users.search',['users'=>$users,'user'=>$user]);
+        return view('users.search',['users'=>$users,'user'=>$users]);
     }
 
 }
