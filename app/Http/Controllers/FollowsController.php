@@ -30,7 +30,8 @@ class FollowsController extends Controller
     public function unfollow(Request $request){
         $id = $request->id;
         DB::table('follows')
-        ->where('id', $id)
+        ->where('follow', $id)
+        ->where('follower', Auth::id())
         ->delete();
 
         return redirect('/search');
