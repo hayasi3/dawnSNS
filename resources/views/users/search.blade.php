@@ -7,23 +7,24 @@
     <input type="image" src="/images/post.png" alt="送信">
 </form>
 
-@forelse($users as $user)
-    <p>{{ $user -> username }}</p>
-@empty
-    <p>結果はありませんでした</p>
-    <img src="/images/edit.png" alt="更新">
-@endforelse
+<!-- $userにすると重複し、layouts.loginの名前が置き換わるため$personalに変更 -->
+@forelse($users as $personal)
+    <p>{{ $personal -> username }}</p>
 
-@foreach($users as $user)
-<form method="post">
+    <form action="/post/follow" method="post">
     @csrf
+    <input type="hidden" name="id" value="{{$personal->id}}">
     <input type="submit" name="Follow1" value="フォローする">
   </form>
 
-  <form method="post">
+  <form action="/post/unfollow" method="post">
     @csrf
+    <input type="hidden" name="id" value="{{$personal->id}}">
     <input type="submit" name="Follow2" value="フォローをはずす">
   </form>
-@endforeach
+
+@empty
+    <p>結果はありませんでした</p>
+@endforelse
 
 @endsection

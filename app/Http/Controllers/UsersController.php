@@ -11,10 +11,14 @@ class UsersController extends Controller
     //
     public function index(Request $request){
         $users = DB::table('users')
+        ->where('id','!=',Auth::id())
         ->select('users.id','users.username','users.images')
         ->get();
 
-        return view('users.search',['users'=>$users]);
+        $user = DB::table('users')
+        ->where('id',Auth::id())
+        ->first();
+        return view('users.search',compact('user','users'));
     }
 
     public function profile(){
