@@ -51,3 +51,5 @@ Route::post('/post/follow', 'FollowsController@follow');
 Route::post('/post/unfollow', 'FollowsController@unfollow');
 
 Route::get('/follow-list', 'FollowsController@followList');
+
+Route::get('/follower-list', 'FollowsController@followerList');

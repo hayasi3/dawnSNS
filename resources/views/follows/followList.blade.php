@@ -5,4 +5,4 @@
 @csrf
 </form>
 
-@foreach
+@endsection

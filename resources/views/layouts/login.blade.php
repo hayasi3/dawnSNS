@@ -51,7 +51,7 @@
                 <p>フォロワー数</p>
                 <p>{{ session('follower') }}名</p>
                 </div>
-                <p class="btn"><a href="/post/follower-list">フォロワーリスト</a></p>
+                <p class="btn"><a href="/follower-list">フォロワーリスト</a></p>
             </div>
             <p class="btn"><a href="/search">ユーザー検索</a></p>
         </div>
