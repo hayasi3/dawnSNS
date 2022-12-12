@@ -11,8 +11,9 @@ class UsersController extends Controller
     //
     public function index(Request $request){
         $users = DB::table('users')
-        ->where('id','!=',Auth::id())
-        ->select('users.id','users.username','users.images')
+        ->leftjoin('follows','users.id','follows.follow')
+        ->select('users.id','users.username','users.images','follows.follower','follows.follow')
+        ->where('users.id','!=',Auth::id())
         ->get();
 
         $user = DB::table('users')

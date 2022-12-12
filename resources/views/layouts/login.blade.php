@@ -44,14 +44,14 @@
                 <p>{{ $user->username}}さんの</p>
                 <div>
                 <p>フォロー数</p>
-                <p>{{ session('following') }}名</p>
+                <p>{{ session('follow') }}名</p>
                 </div>
-                <p class="btn"><a href="">フォローリスト</a></p>
+                <p class="btn"><a href="/follow-list">フォローリスト</a></p>
                 <div>
                 <p>フォロワー数</p>
-                <p>{{ session('followed') }}名</p>
+                <p>{{ session('follower') }}名</p>
                 </div>
-                <p class="btn"><a href="">フォロワーリスト</a></p>
+                <p class="btn"><a href="/post/follower-list">フォロワーリスト</a></p>
             </div>
             <p class="btn"><a href="/search">ユーザー検索</a></p>
         </div>

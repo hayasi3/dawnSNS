@@ -1,7 +1,7 @@
 @extends('layouts.login')
 
 @section('content')
-<form action="/post/follow-list" method="post">
+<form action="/post/follower-list" method="post">
 @csrf
 </form>
 
