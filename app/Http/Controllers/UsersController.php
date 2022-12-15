@@ -29,6 +29,15 @@ class UsersController extends Controller
         return view('users.profile',compact('user'));
     }
 
+    public function otherProfile($id){
+        $user = DB::table('users')
+        ->leftjoin('posts','users.id','posts.user_id')
+        ->select('users.*','posts.posts')
+        ->where('users.id',$id)
+        ->first();
+        return view('users.otherProfile',compact('user'));
+    }
+
     public function search(Request $request){
         $name = $request->input('search');
         $users = DB::table('users')
@@ -41,5 +50,6 @@ class UsersController extends Controller
 
         return view('users.search',['users'=>$users,'user'=>$users]);
     }
+
 
 }
