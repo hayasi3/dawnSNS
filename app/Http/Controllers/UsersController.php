@@ -35,7 +35,12 @@ class UsersController extends Controller
         ->select('users.*','posts.posts')
         ->where('users.id',$id)
         ->first();
-        return view('users.otherProfile',compact('user'));
+
+        $id = DB::table('follows')
+        ->where('follower', Auth::id())
+        ->pluck('follow');
+
+        return view('users.otherProfile',compact('user','id'));
     }
 
     public function search(Request $request){
@@ -50,6 +55,7 @@ class UsersController extends Controller
 
         return view('users.search',['users'=>$users,'user'=>$users]);
     }
+    
 
 
 }
