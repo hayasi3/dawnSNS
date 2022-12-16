@@ -7,23 +7,20 @@
 <p>{{ $user->posts }}</p>
 <p>{{ $user->created_at }}</p>
 
-
-
-@if(contains -> follower == Auth::id())
-<form action="/post/unfollow" method="post">
-    @csrf
-    <input type="hidden" name="id" value="{{$personal->id}}">
+@if($id->contains('follows.follow'))
+<form action="/other-prof/{id}" method="post">
+@csrf
+    <input type="hidden" name="id" value="{{$id}">
     <input type="submit" name="Follow2" value="フォローをはずす">
-  </form>
+</form>
+
 @else
-<form action="/post/follow" method="post">
-    @csrf
-    <input type="hidden" name="id" value="{{$personal->id}}">
+<form action="/other-prof/{id}" method="post">
+@csrf
+    <input type="hidden" name="id" value="{{$id}}">
     <input type="submit" name="Follow1" value="フォローする">
-  </form>
- 
+</form>
 @endif
 
-@empty
 
 @endsection
