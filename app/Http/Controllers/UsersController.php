@@ -32,13 +32,15 @@ class UsersController extends Controller
     public function otherProfile($id){
         $user = DB::table('users')
         ->leftjoin('posts','users.id','posts.user_id')
-        ->select('users.*','posts.posts')
+        ->leftjoin('follows','users.id','follows.follow')
+        ->select('users.*','posts.posts','follows.follow','follows.follower')
         ->where('users.id',$id)
         ->first();
 
         $id = DB::table('follows')
         ->where('follower', Auth::id())
         ->pluck('follow');
+        //dd($user);
 
         return view('users.otherProfile',compact('user','id'));
     }

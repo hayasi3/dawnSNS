@@ -54,6 +54,7 @@ class FollowsController extends Controller
         ->where('follower', Auth::id())
         ->delete();
 
-        return redirect('/search');
+        return back();
     }
+
 }
