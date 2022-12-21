@@ -10,16 +10,25 @@ class UsersController extends Controller
 {
     //
     public function index(Request $request){
+        // $users = DB::table('users')
+        // ->leftjoin('follows','users.id','follows.follow')
+        // ->select('users.id','users.username','users.images','follows.follower','follows.follow')
+        // ->where('users.id','!=',Auth::id())
+        // ->groupBy()
+        // ->get();
         $users = DB::table('users')
-        ->leftjoin('follows','users.id','follows.follow')
-        ->select('users.id','users.username','users.images','follows.follower','follows.follow')
         ->where('users.id','!=',Auth::id())
         ->get();
+
+        $followed = DB::table('follows')
+        ->where('follower',Auth::id())
+        ->pluck('follow');
 
         $user = DB::table('users')
         ->where('id',Auth::id())
         ->first();
-        return view('users.search',compact('user','users'));
+
+        return view('users.search',compact('user','users','followed'));
     }
 
     public function profile(){

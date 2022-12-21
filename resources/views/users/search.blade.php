@@ -11,9 +11,9 @@
 @forelse($users as $personal)
     <p>{{ $personal -> username }}</p>
 
-@if($personal -> follower == Auth::id())
+@if(array_search($personal->id,(array)$followed,true))
 <form action="/post/unfollow" method="post">
-    @csrf
+@csrf
     <input type="hidden" name="id" value="{{$personal->id}}">
     <input type="submit" name="Follow2" value="フォローをはずす">
   </form>
@@ -23,7 +23,7 @@
     <input type="hidden" name="id" value="{{$personal->id}}">
     <input type="submit" name="Follow1" value="フォローする">
   </form>
- 
+
 @endif
 
 @empty

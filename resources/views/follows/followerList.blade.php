@@ -5,6 +5,4 @@
 @csrf
 </form>
 
-
-
 @endsection
