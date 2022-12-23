@@ -22,7 +22,7 @@ class UsersController extends Controller
 
         $followed = DB::table('follows')
         ->where('follower',Auth::id())
-        ->pluck('follow');
+        ->get();
 
         $user = DB::table('users')
         ->where('id',Auth::id())
@@ -38,6 +38,13 @@ class UsersController extends Controller
         return view('users.profile',compact('user'));
     }
 
+    public function upProfile(){
+        $user = DB::table('users')
+        ->where('id',Auth::id())
+        ->first();
+        return redirect('/profile');
+    }
+
     public function otherProfile($id){
         $user = DB::table('users')
         ->leftjoin('posts','users.id','posts.user_id')
@@ -46,12 +53,16 @@ class UsersController extends Controller
         ->where('users.id',$id)
         ->first();
 
+        $followed = DB::table('follows')
+        ->where('follower',Auth::id())
+        ->get();
+
         $id = DB::table('follows')
         ->where('follower', Auth::id())
         ->pluck('follow');
         //dd($user);
 
-        return view('users.otherProfile',compact('user','id'));
+        return view('users.otherProfile',compact('user','id','followed'));
     }
 
     public function search(Request $request){

@@ -11,7 +11,7 @@
 @forelse($users as $personal)
     <p>{{ $personal -> username }}</p>
 
-@if(array_search($personal->id,(array)$followed,true))
+@if($followed->contains('follow',$personal->id))
 <form action="/post/unfollow" method="post">
 @csrf
     <input type="hidden" name="id" value="{{$personal->id}}">

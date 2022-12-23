@@ -7,7 +7,7 @@
 <p>{{ $user->posts }}</p>
 <p>{{ $user->created_at }}</p>
 
-@if($user->follower == Auth::id())
+@if($followed->contains('follow',$user->id))
 <form action="/post/unfollow" method="post">
 @csrf
     <input type="hidden" name="id" value="{{$user->follow}}">
