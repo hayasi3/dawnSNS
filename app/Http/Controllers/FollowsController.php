@@ -26,16 +26,17 @@ class FollowsController extends Controller
     public function followerList(){
         $users = DB::table('users')
         ->leftjoin('posts','users.id','posts.user_id')
-        ->leftjoin('follows','users.id','follows.follow')
+        ->leftjoin('follows','users.id','follows.follower')
         ->select('users.*','posts.posts','follows.follow','follows.follower')
-        ->where('follows.follower',Auth::id())
+        ->where('follows.follow',Auth::id())
         ->get();
 
         $user = DB::table('users')
         ->where('id',Auth::id())
         ->first();
-        return view('follows.followerList',compact('user','users'));
+        return view('follows.followList',compact('user','users'));
     }
+
 
     public function follow(Request $request){
         $id = $request->id;
