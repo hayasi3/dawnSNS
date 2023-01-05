@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 use Auth;
 
 class UsersController extends Controller
@@ -35,13 +36,35 @@ class UsersController extends Controller
         $user = DB::table('users')
         ->where('id',Auth::id())
         ->first();
+
         return view('users.profile',compact('user'));
     }
 
-    public function upProfile(){
-        $user = DB::table('users')
+    public function upProfile(Request $request){
+        $name = $request->input('name');
+        $mail = $request->input('mail');
+        $password = $request->input('password');
+        $bio = $request->input('bio');
+        $image = $request->file('image')->getClientOriginalName();
+
+        DB::table('users')
         ->where('id',Auth::id())
-        ->first();
+        ->update(['username' => $name,'mail' => $mail,'bio' => $bio]);
+
+        if(!empty($password)){
+            DB::table('users')
+            ->where('id',Auth::id())
+            ->update(['password' => Hash::make($password)]);
+        }
+
+        if(!empty($image)){
+            DB::table('users')
+            ->where('id',Auth::id())
+            ->update(['images' => $image]);
+
+            $request->file('image')->storeAs('public/images', $image);
+        }
+
         return redirect('/profile');
     }
 

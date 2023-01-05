@@ -22,10 +22,10 @@
 <body>
     <header>
         <div id = "head">
-        <h1><a href="/top"><img src="{{ asset('images/main_logo.png') }}"></a></h1>
+        <h1><a href="/top"><img src="{{ asset('storage/images/'.$user->images) }}"></a></h1>
             <div id="">
                 <div id="icon">
-                    <p>{{$user->username}}さん<img src="{{ asset('images/dawn.png') }}"></p>
+                    <p>{{ $user->username}}さん<img src="{{ asset('storage/images/'.$user->images) }}"></p>
                 <div>
                 <ul>
                     <li><a href="/top">ホーム</a></li>
@@ -44,7 +44,7 @@
                 <p>{{ $user->username}}さんの</p>
                 <div>
                 <p>フォロー数</p>
-                <p>{{ session('follower') }}名</p>
+                <p>{{ session('follow') }}名</p>
                 </div>
                 <p class="btn"><a href="/follow-list">フォローリスト</a></p>
                 <div>

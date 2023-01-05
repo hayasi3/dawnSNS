@@ -55,3 +55,5 @@ Route::get('/follow-list', 'FollowsController@followList');
 Route::get('/follower-list', 'FollowsController@followerList');
 
 Route::get('/other-prof/{id}', 'UsersController@otherProfile');
+
+Route::post('/post/upProfile', 'UsersController@upProfile');
