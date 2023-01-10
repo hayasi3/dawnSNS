@@ -45,7 +45,7 @@ class UsersController extends Controller
         $mail = $request->input('mail');
         $password = $request->input('password');
         $bio = $request->input('bio');
-        $image = $request->file('image')->getClientOriginalName();
+        
 
         DB::table('users')
         ->where('id',Auth::id())
@@ -58,6 +58,7 @@ class UsersController extends Controller
         }
 
         if(!empty($image)){
+            $image = $request->file('image')->getClientOriginalName();
             DB::table('users')
             ->where('id',Auth::id())
             ->update(['images' => $image]);

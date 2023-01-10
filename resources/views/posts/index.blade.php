@@ -8,7 +8,7 @@
 </form>
 
 @foreach($posts as $post)
-<img src="/images/{{ $post->images }}" alt="ユーザアイコン">
+<img src="{{ asset('storage/images/'.$post->images) }}" alt="ユーザアイコン">
 <p>{{ $post->posts }}</p>
 <p>{{ $post->username }}</p>
 <p>{{ $post->created_at }}</p>
