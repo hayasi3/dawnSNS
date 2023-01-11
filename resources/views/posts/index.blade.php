@@ -13,14 +13,22 @@
 <p>{{ $post->username }}</p>
 <p>{{ $post->created_at }}</p>
 
-<img src="/images/edit.png" alt="更新">
-<form action="/post/update" method="post">
-    @csrf
-    @method('put')
-    <input type="hidden" name="id" value="{{ $post->id }}">
-    <input type="text" name="editpost" value="{{ $post->posts }}">
-    <input type="image" src="/images/edit.png" alt="更新">
-</form>
+<div class="modalopen" data-target="{{$post->id}}">
+    <img src="/images/edit.png" alt="更新">
+</div>
+<div class="modal-main" id="{{$post->id}}">
+    <div class="modal-inner">
+        <div class="modal-white">
+            <form action="/post/update" method="post">
+                @csrf
+                @method('put')
+                <input type="hidden" name="id" value="{{ $post->id }}">
+                <input type="text" name="editpost" value="{{ $post->posts }}">
+                <input type="image" src="/images/edit.png" alt="更新">
+            </form>
+        </div>
+    </div>
+</div>
 
 <form action="/post/delete" method="post">
     @csrf
