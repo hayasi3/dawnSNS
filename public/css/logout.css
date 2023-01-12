@@ -1,9 +1,11 @@
-@chasert "utf-8";
+@charset "utf-8";
 
 html{
     height: 100%;
 }
 body{
     height: 100%;
-    background: #3C4767;
+    background:linear-gradient(180deg,#3c4767, #bb3f0d); 
+	height: 100%;
+    
 }

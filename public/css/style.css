@@ -6,6 +6,7 @@ body{
 /* header */
 header{
     background:#3C4767;
+    height: 300px;
 }
 
 /* main content */
@@ -22,7 +23,7 @@ header{
 }
 
 .g-navi {
-    transform: translateY(-100%);
+    transform: translateY(0%);
     transition: .5s ease-in-out;
   }
 
@@ -30,6 +31,11 @@ header{
 transform: translateY(0%);
 transition: .5s ease-in-out;
 }
+
+#icon{
+    background-image:url(../img/bg-sample.jpg);
+    padding: 10px;
+   }
 
 .modal-main{ /* ① モーダルウィンドウを非表示にする。*/
     display: none;
@@ -51,10 +57,20 @@ z-index: 2;
 }
 
 .modal-white{
-    width: 300px;
-    height: 150px;
-    padding-left: 125px;
-    padding-top: 75px;
-    background-color:#ffff;
+    width: 800px;
+    height: 300px;
+    padding-top: 40px;
+    padding-left: 50px;
+    margin-bottom: 200px;
+    background-color: #ffff;
 
 }
+
+input[type="text"] {
+    padding-bottom: 70px;
+    padding-top: 40px;
+    padding-right: 0px;
+    padding-left: 600px;
+}
+
+

@@ -25,9 +25,8 @@
     <header>
         <div id = "head">
         <h1><a href="/top"><img src="{{ asset('images/main_logo.png') }}"></a></h1>
-            <div id="">
                 <div id="icon">
-                    <p>{{ $user->username}}さん<img src="{{ asset('storage/images/'.$user->images) }}"></p>
+                    <p id="username">{{ $user->username}}さん<img src="{{ asset('storage/images/'.$user->images) }}"></p>
                 </div>
                 <div class="g-navi">
                     <ul>
@@ -37,7 +36,6 @@
                     </ul>
                 </div>
             </div>
-        </div>
     </header>
     <div id="row">
         <div id="container">

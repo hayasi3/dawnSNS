@@ -19,15 +19,15 @@
     <link rel="apple-touch-icon-precomposed" href="画像のURL" />
     <!--OGPタグ/twitterカード-->
 </head>
-<body>
-    <header>
-        <h1><img src="images/main_logo.png"></h1>
-        <p>Social Network Service</p>
-    </header>
-    <div id="container">
-        @yield('content')
-    </div >
-    <script src="JavaScriptファイルのURL"></script>
-    <script src="JavaScriptファイルのURL"></script>
-</body>
+    <body>
+        <header>
+            <h1><img src="images/main_logo.png"></h1>
+            <p>Social Network Service</p>
+        </header>
+        <div id="container">
+            @yield('content')
+        </div >
+        <script src="JavaScriptファイルのURL"></script>
+        <script src="JavaScriptファイルのURL"></script>
+    </body>
 </html>
