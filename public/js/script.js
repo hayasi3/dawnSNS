@@ -13,6 +13,13 @@ $(function () {
     });
 });
 
+$(function () {
+    $('.g-navi').css("display", "none");
+    $('#username').on('click', function () {
+      $(this).next().slideToggle();
+    })
+  });
+
 
 //モーダル動作
 $(function () { //①

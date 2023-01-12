@@ -22,20 +22,43 @@ header{
     border-left: 1px solid #6C6C6C;
 }
 
-.g-navi {
-    transform: translateY(0%);
-    transition: .5s ease-in-out;
+/* アコーディオンメニュー */
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+    list-style:none;
   }
 
-.g-navi.active{
-transform: translateY(0%);
-transition: .5s ease-in-out;
+.all{
+    width:90%;
+    max-width:600px;
+    margin: 0 auto;
 }
 
-#icon{
-    background-image:url(../img/bg-sample.jpg);
-    padding: 10px;
-   }
+#username{
+    text-align:right;
+    cursor:pointer;
+    transition:.3s;
+}
+
+/* .g-navi{ */
+    /* padding:2em 1em;  */
+    /* background-color:#d3deff; */
+/* } */
+  
+
+/* .g-navi{ */
+/* transform:translateY(0%); */
+/* transition:.5s ease-in-out; */
+/* } */
+
+/* .g-navi.active{ */
+/* transform:translateY(0%); */
+/* transition:.5s ease-in-out; */
+/* } */
+
+
 
 .modal-main{ /* ① モーダルウィンドウを非表示にする。*/
     display: none;
