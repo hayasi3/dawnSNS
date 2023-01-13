@@ -61,9 +61,9 @@ class UsersController extends Controller
             $image = $request->file('image')->getClientOriginalName();
             DB::table('users')
             ->where('id',Auth::id())
-            ->update(['images' => $image]);
+            ->update(['image' => $image]);
 
-            $request->file('image')->storeAs('public/images', $image);
+            $request->file('image')->storeAs('public/image', $image);
         }
 
         return redirect('/profile');

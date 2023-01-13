@@ -31,9 +31,7 @@ header{
   }
 
 .all{
-    width:90%;
-    max-width:600px;
-    margin: 0 auto;
+    margin: 0 0 0 auto;
 }
 
 #username{
@@ -42,11 +40,11 @@ header{
     transition:.3s;
 }
 
-/* .g-navi{ */
-    /* padding:2em 1em;  */
-    /* background-color:#d3deff; */
-/* } */
-  
+.g-navi{
+    background-color: white;
+    width: 150px;
+    margin: 0 0 0 auto;
+}
 
 /* .g-navi{ */
 /* transform:translateY(0%); */
