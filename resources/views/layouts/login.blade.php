@@ -30,15 +30,20 @@
                     </a>
                 </div>
             <div class="all">
-                <div id="icon">
-                    <p id="username">{{ $user->username}}さん<img src="{{ asset('storage/images/'.$user->images) }}"></p>
+                <div class="ac">
+                    <div id="username">
+                        <p>{{ $user->username}}さん</p>
+                    </div>
+                    <div class="g-navi">
+                        <ul>
+                            <li><a href="/top">ホーム</a></li>
+                            <li><a href="/profile">プロフィール</a></li>
+                            <li><a href="/logout">ログアウト</a></li>
+                        </ul>
+                    </div>
                 </div>
-                <div class="g-navi">
-                    <ul>
-                        <li><a href="/top">ホーム</a></li>
-                        <li><a href="/profile">プロフィール</a></li>
-                        <li><a href="/logout">ログアウト</a></li>
-                    </ul>
+                <div class="img-box">
+                    <img src="{{ asset('storage/images/'.$user->images) }}">
                 </div>
             </div>
         </div>

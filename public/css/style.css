@@ -6,7 +6,7 @@ body{
 /* header */
 header{
     background:#3C4767;
-    height: 300px;
+    height: 200px;
 }
 
 /* main content */
@@ -31,14 +31,23 @@ header{
   }
 
 .all{
-    margin: 0 0 0 auto;
+    /* margin: 0 0 0 auto; */
+    display: flex;
+    justify-content:flex-end;
+    height: 100px;
+
 }
 
 #username{
+    width: 150px;
+    height: auto;
+}
+
+/* #username{
     text-align:right;
     cursor:pointer;
     transition:.3s;
-}
+} */
 
 .g-navi{
     background-color: white;
@@ -101,3 +110,49 @@ input[type="text"] {
     padding-right: 0px;
     padding-left: 600px;
 }
+
+.posted-box{
+    display: inline-block;
+}
+
+.post-all{
+    overflow: hidden;
+    /* height: px; */
+    background-color: #777777;
+}
+
+.user-img{
+    float: left;
+    width: 100px;
+    height: 100%;
+    background-color: #882222;
+}
+
+.post-box{
+    float: right;
+    width : calc(100% - 100px);
+    height: 100%;
+    background-color: #228822;
+}
+
+.user-status{
+    display: flex;
+    justify-content: space-between;
+    height: 30px;
+    background-color: #222288;
+}
+
+.user-status span{
+    padding: 0px 50px;
+}
+
+.text{
+    background-color: aqua;
+}
+
+.btn-box{
+    display: flex;
+    justify-content: flex-end;
+    background-color: #888222;
+}
+
