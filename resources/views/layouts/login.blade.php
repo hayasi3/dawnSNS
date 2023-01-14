@@ -22,22 +22,26 @@
     <script src="./js/script.js"></script>
 </head>
 <body>
-    <header>
+     <header>
         <div id = "head">
-        <h1><a href="/top"><img src="{{ asset('images/main_logo.png') }}"></a></h1>
+            <h1><a href="/top"></h1>
+                <div class="">
+                    <img src="{{ asset('images/main_logo.png') }}">
+                    </a>
+                </div>
             <div class="all">
                 <div id="icon">
                     <p id="username">{{ $user->username}}さん<img src="{{ asset('storage/images/'.$user->images) }}"></p>
                 </div>
-                    <div class="g-navi">
-                        <ul>
-                            <li><a href="/top">ホーム</a></li>
-                            <li><a href="/profile">プロフィール</a></li>
-                            <li><a href="/logout">ログアウト</a></li>
-                        </ul>
-                    </div>
+                <div class="g-navi">
+                    <ul>
+                        <li><a href="/top">ホーム</a></li>
+                        <li><a href="/profile">プロフィール</a></li>
+                        <li><a href="/logout">ログアウト</a></li>
+                    </ul>
                 </div>
             </div>
+        </div>
     </header>
     <div id="row">
         <div id="container">

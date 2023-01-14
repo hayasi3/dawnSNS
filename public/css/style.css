@@ -56,7 +56,15 @@ header{
 /* transition:.5s ease-in-out; */
 /* } */
 
+.img-box{
+    width:55px;
+    height:55px;
+}
 
+.img-box img {
+    max-width:100%;
+    max-height:100%;
+   }
 
 .modal-main{ /* ① モーダルウィンドウを非表示にする。*/
     display: none;
@@ -93,5 +101,3 @@ input[type="text"] {
     padding-right: 0px;
     padding-left: 600px;
 }
-
-

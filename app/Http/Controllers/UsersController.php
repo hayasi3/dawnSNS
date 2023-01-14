@@ -45,7 +45,7 @@ class UsersController extends Controller
         $mail = $request->input('mail');
         $password = $request->input('password');
         $bio = $request->input('bio');
-        
+        $image = $request->file('image');
 
         DB::table('users')
         ->where('id',Auth::id())
@@ -57,13 +57,14 @@ class UsersController extends Controller
             ->update(['password' => Hash::make($password)]);
         }
 
+
         if(!empty($image)){
-            $image = $request->file('image')->getClientOriginalName();
+            $image = $image->getClientOriginalName();
             DB::table('users')
             ->where('id',Auth::id())
-            ->update(['image' => $image]);
+            ->update(['images' => $image]);
 
-            $request->file('image')->storeAs('public/image', $image);
+            $request->file('image')->storeAs('public/images', $image);
         }
 
         return redirect('/profile');

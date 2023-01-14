@@ -13,30 +13,31 @@
 <p>{{ $post->username }}</p>
 <p>{{ $post->created_at }}</p>
 
-<div class="modalopen" data-target="{{$post->id}}">
-    <img src="/images/edit.png" alt="更新">
-</div>
-<div class="modal-main" id="{{$post->id}}">
-    <div class="modal-inner">
-        <div class="modal-white">
-            <form action="/post/update" method="post">
-                @csrf
-                @method('put')
-                <input type="hidden" name="id" value="{{ $post->id }}">
-                <input type="text" name="editpost" value="{{ $post->posts }}">
-                <input type="image" src="/images/edit.png" alt="更新">
-            </form>
+@if($post->user_id == Auth::id())
+    <div class="modalopen" data-target="{{$post->id}}">
+        <img src="/images/edit.png" alt="更新">
+    </div>
+    <div class="modal-main" id="{{$post->id}}">
+        <div class="modal-inner">
+            <div class="modal-white">
+                <form action="/post/update" method="post">
+                    @csrf
+                    @method('put')
+                    <input type="hidden" name="id" value="{{ $post->id }}">
+                    <input type="text" name="editpost" value="{{ $post->posts }}">
+                    <input type="image" src="/images/edit.png" alt="更新">
+                </form>
+            </div>
         </div>
     </div>
-</div>
 
-<form action="/post/delete" method="post">
-    @csrf
-    @method('delete')
-    <input type="hidden" name="id" value="{{$post->id}}">
-    <input type="image" src="/images/trash.png" alt="削除" onclick="return confirm('こちらの投稿を削除してもよろしいでしょうか？')">
-</form>
-
+    <form action="/post/delete" method="post">
+        @csrf
+        @method('delete')
+        <input type="hidden" name="id" value="{{$post->id}}">
+        <input type="image" src="/images/trash.png" alt="削除" onclick="return confirm('こちらの投稿を削除してもよろしいでしょうか？')">
+    </form>
+@endif
 @endforeach
 
 @endsection
