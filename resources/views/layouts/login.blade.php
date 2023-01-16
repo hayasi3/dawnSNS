@@ -54,19 +54,19 @@
         </div >
         <div id="side-bar">
             <div id="confirm">
-                <p>{{ $user->username}}さんの</p>
-                <div>
-                <p>フォロー数</p>
-                <p>{{ session('follow') }}名</p>
+                <p class="login-name">{{ $user->username}}さんの</p>
+                <div class="namber">
+                    <p>フォロー数</p>
+                    <p>{{ session('follow') }}名</p>
                 </div>
-                <p class="btn"><a href="/follow-list">フォローリスト</a></p>
-                <div>
-                <p>フォロワー数</p>
-                <p>{{ session('follower') }}名</p>
+                <p class="btn"><a href="/follow-list"><input id="btn-type" type="submit" name="Follow-type1" value="フォローリスト"></a></p>
+                <div class="namber">
+                    <p>フォロワー数</p>
+                    <p>{{ session('follower') }}名</p>
                 </div>
-                <p class="btn"><a href="/follower-list">フォロワーリスト</a></p>
+                <p class="btn"><a href="/follower-list"><input id="btn-type" type="submit" name="Follow-type2" value="フォロワーリスト"></a></p>
             </div>
-            <p class="btn"><a href="/search">ユーザー検索</a></p>
+            <p class="btn-search"><a href="/search"><input id="btn-type" type="submit" name="Follow-type2" value="ユーザー検索"></a></p>
         </div>
     </div>
     <footer>
