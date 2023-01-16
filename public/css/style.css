@@ -117,42 +117,41 @@ input[type="text"] {
 
 .post-all{
     overflow: hidden;
-    /* height: px; */
-    background-color: #777777;
+    margin: 50px 0px;
+    padding: 20px 40px;
+    border-bottom: 3px solid #999999;
 }
 
 .user-img{
     float: left;
     width: 100px;
     height: 100%;
-    background-color: #882222;
+    display: flex;
+    justify-content:center;
 }
 
 .post-box{
     float: right;
     width : calc(100% - 100px);
     height: 100%;
-    background-color: #228822;
 }
 
 .user-status{
     display: flex;
     justify-content: space-between;
     height: 30px;
-    background-color: #222288;
 }
 
 .user-status span{
-    padding: 0px 50px;
+    padding: 0px 20px;
 }
 
 .text{
-    background-color: aqua;
+    padding: 0px 20px;
 }
 
 .btn-box{
     display: flex;
     justify-content: flex-end;
-    background-color: #888222;
 }
 
