@@ -188,3 +188,17 @@ input[type="text"] {
 .btn-search{
     text-align: center;
 }
+
+.arrow{
+    width:300px;
+    height:200px;
+    /* background:url('/storage/images/ダウンロード.png'); */
+}
+
+.arrow.active{
+    width:300px;
+    height:200px;
+    /* background:url('/storage/images/ダウンロード.png'); */
+    transform: scale(1, -1);
+    background-color: red;
+}

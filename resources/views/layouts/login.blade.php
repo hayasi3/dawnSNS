@@ -33,6 +33,8 @@
                 <div class="ac">
                     <div id="username">
                         <p>{{ $user->username}}さん</p>
+                        <p class="arrow">aaa</p>
+                        <!-- <img class="arrow" src="/storage/images/ダウンロード.png"></img> -->
                     </div>
                     <div class="g-navi">
                         <ul>
