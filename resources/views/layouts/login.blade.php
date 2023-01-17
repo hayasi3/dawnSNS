@@ -27,7 +27,7 @@
             <h1><a href="/top"></h1>
                 <div class="">
                     <img src="{{ asset('images/main_logo.png') }}">
-                    </a>
+                </a>
                 </div>
             <div class="all">
                 <div class="ac">

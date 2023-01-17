@@ -1,11 +1,18 @@
 @extends('layouts.login')
 
 @section('content')
-<form action="/post/create" method="post">
-    @csrf
-    <input type="text" name="newpost" placeholder="なにをつぶやこうか・・・">
-    <input type="image" src="/images/post.png" alt="送信">
-</form>
+<div class="message-all">
+    <form action="/post/create" method="post">
+        @csrf
+        <div class="message">
+            <input type="text" name="newpost" placeholder="なにをつぶやこうか・・・?">
+            <input type="image" id="send" src="/images/post.png" alt="送信">
+            <div class="img-box img-send">
+                <img src="{{ asset('storage/images/'.$user->images) }}">
+            </div>
+        </div>
+    </form>
+</div>
 
 @foreach($posts as $post)
 <div class="post-all">
