@@ -5,6 +5,11 @@ $(function () {
     })
   });
 
+$(function () {
+    $('#username').on('click', function () {
+        $('.arrow').toggleClass('active');
+    })
+});
 
 //モーダル動作
 $(function () { //①

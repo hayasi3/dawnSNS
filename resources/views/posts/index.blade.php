@@ -2,16 +2,18 @@
 
 @section('content')
 <div class="message-all">
-    <form action="/post/create" method="post">
-        @csrf
-        <div class="message">
-            <input type="text" name="newpost" placeholder="なにをつぶやこうか・・・?">
-            <input type="image" id="send" src="/images/post.png" alt="送信">
-            <div class="img-box img-send">
-                <img src="{{ asset('storage/images/'.$user->images) }}">
-            </div>
-        </div>
-    </form>
+    <div class="img-box">
+        <img src="{{ asset('storage/images/'.$user->images) }}">
+    </div>
+    <div class="message-box">
+        <form action="/post/create" method="post">
+            @csrf
+            <!-- <div class="message-box"> -->
+                <input type="text" id="messeage" name="newpost" placeholder="なにをつぶやこうか・・・?">
+                <input type="image" id="send" src="/images/post.png" alt="送信">
+            <!-- </div> -->
+        </form>
+    </div>
 </div>
 
 @foreach($posts as $post)

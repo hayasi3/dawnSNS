@@ -37,7 +37,15 @@ class UsersController extends Controller
         ->where('id',Auth::id())
         ->first();
 
-        return view('users.profile',compact('user'));
+        $follow_count = DB::table('follows')
+        ->where('follower',Auth::id())
+        ->count();
+
+        $follower_count = DB::table('follows')
+        ->where('follow',Auth::id())
+        ->count();
+
+        return view('users.profile',compact('user','follow_count','follower_count'));
     }
 
     public function upProfile(Request $request){

@@ -18,7 +18,16 @@ class PostsController extends Controller
         $user = DB::table('users')
         ->where('id',Auth::id())
         ->first();
-        return view('posts.index',['posts'=>$posts,'user'=>$user]);
+
+        $follow_count = DB::table('follows')
+        ->where('follower',Auth::id())
+        ->count();
+
+        $follower_count = DB::table('follows')
+        ->where('follow',Auth::id())
+        ->count();
+
+        return view('posts.index',['posts'=>$posts,'user'=>$user,'follow_count'=>$follow_count,'follower_count'=>$follower_count]);
     }
 
     public function create(Request $request){

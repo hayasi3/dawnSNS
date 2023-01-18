@@ -33,7 +33,7 @@
                 <div class="ac">
                     <div id="username">
                         <p>{{ $user->username}}さん</p>
-                        <p class="arrow">aaa</p>
+                        <p class="arrow">＞</p>
                         <!-- <img class="arrow" src="/storage/images/ダウンロード.png"></img> -->
                     </div>
                     <div class="g-navi">
@@ -44,7 +44,7 @@
                         </ul>
                     </div>
                 </div>
-                <div class="img-box">
+                <div class="img-box icon">
                     <img src="{{ asset('storage/images/'.$user->images) }}">
                 </div>
             </div>
@@ -59,12 +59,12 @@
                 <p class="login-name">{{ $user->username}}さんの</p>
                 <div class="namber">
                     <p>フォロー数</p>
-                    <p>{{ session('follow') }}名</p>
+                    <p>{{ $follow_count }}名</p>
                 </div>
                 <p class="btn"><a href="/follow-list"><input id="btn-type" type="submit" name="Follow-type1" value="フォローリスト"></a></p>
                 <div class="namber">
                     <p>フォロワー数</p>
-                    <p>{{ session('follower') }}名</p>
+                    <p>{{ $follower_count }}名</p>
                 </div>
                 <p class="btn"><a href="/follower-list"><input id="btn-type" type="submit" name="Follow-type2" value="フォロワーリスト"></a></p>
             </div>
