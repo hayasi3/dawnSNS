@@ -29,7 +29,15 @@ class UsersController extends Controller
         ->where('id',Auth::id())
         ->first();
 
-        return view('users.search',compact('user','users','followed'));
+        $follow_count = DB::table('follows')
+        ->where('follower',Auth::id())
+        ->count();
+
+        $follower_count = DB::table('follows')
+        ->where('follow',Auth::id())
+        ->count();
+
+        return view('users.search',compact('user','users','followed','follow_count','follower_count'));
     }
 
     public function profile(){
@@ -93,9 +101,16 @@ class UsersController extends Controller
         $id = DB::table('follows')
         ->where('follower', Auth::id())
         ->pluck('follow');
-        //dd($user);
 
-        return view('users.otherProfile',compact('user','id','followed'));
+        $follow_count = DB::table('follows')
+        ->where('follower',Auth::id())
+        ->count();
+
+        $follower_count = DB::table('follows')
+        ->where('follow',Auth::id())
+        ->count();
+
+        return view('users.otherProfile',compact('user','id','followed','follow_count','follower_count'));
     }
 
     public function search(Request $request){

@@ -20,7 +20,16 @@ class FollowsController extends Controller
         $user = DB::table('users')
         ->where('id',Auth::id())
         ->first();
-        return view('follows.followList',compact('user','users'));
+
+        $follow_count = DB::table('follows')
+        ->where('follower',Auth::id())
+        ->count();
+
+        $follower_count = DB::table('follows')
+        ->where('follow',Auth::id())
+        ->count();
+
+        return view('follows.followList',compact('user','users','follow_count','follower_count'));
     }
 
     public function followerList(){
@@ -34,7 +43,16 @@ class FollowsController extends Controller
         $user = DB::table('users')
         ->where('id',Auth::id())
         ->first();
-        return view('follows.followList',compact('user','users'));
+
+        $follow_count = DB::table('follows')
+        ->where('follower',Auth::id())
+        ->count();
+
+        $follower_count = DB::table('follows')
+        ->where('follow',Auth::id())
+        ->count();
+
+        return view('follows.followList',compact('user','users','follow_count','follower_count'));
     }
 
 
