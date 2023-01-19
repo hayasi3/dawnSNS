@@ -247,6 +247,7 @@ z-index: 2;
 
 .prof{
     margin: 40px 0;
+    padding: 10px 50px;
 }
 
 .form-control{
@@ -258,4 +259,15 @@ z-index: 2;
     text-align: right;
     padding-right: 20px;
     padding-top: 10px;
+}
+
+.update{
+    text-align: center;
+}
+
+.btn-primary{
+    background-color: greenyellow;
+    border: none;
+    padding: 10px 30px;
+    border-radius: 5px;
 }
