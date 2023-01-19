@@ -123,11 +123,16 @@ class UsersController extends Controller
         ->select('users.id','users.username','users.images')
         ->where('username',$name)
         ->get();
+
         $users = DB::table('users')
         ->where('username','LIKE',"%".$name."%")
         ->get();
 
-        return view('users.search',['users'=>$users,'user'=>$users]);
+        $followed = DB::table('follows')
+        ->where('follower',Auth::id())
+        ->first();
+
+        return view('users.search',['users'=>$users,'user'=>$users,'followed'=>$followed]);
     }
 
 }
