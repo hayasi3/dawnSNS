@@ -119,20 +119,38 @@ class UsersController extends Controller
 
     public function search(Request $request){
         $name = $request->input('search');
-        $users = DB::table('users')
-        ->select('users.id','users.username','users.images')
-        ->where('username',$name)
-        ->get();
 
+        if(empty($name)){
+            $users = DB::table('users')
+            ->select('users.id','users.username','users.images')
+            ->where('username',$name)
+            ->get();
+        }else{
         $users = DB::table('users')
-        ->where('username','LIKE',"%".$name."%")
-        ->get();
+            ->where('username','LIKE',"%".$name."%")
+            ->select('users.id','users.username','users.images')
+            ->get();
+        }
 
         $followed = DB::table('follows')
         ->where('follower',Auth::id())
+        ->get();
+        // dd($followed);
+
+        $follow_count = DB::table('follows')
+        ->where('follower',Auth::id())
+        ->count();
+
+        $follower_count = DB::table('follows')
+        ->where('follow',Auth::id())
+        ->count();
+
+        $user = DB::table('users')
+        ->where('id',Auth::id())
         ->first();
 
-        return view('users.search',['users'=>$users,'user'=>$users,'followed'=>$followed]);
+
+        return view('users.search',compact('users','user','followed','follow_count','follower_count'));
     }
 
 }

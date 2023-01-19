@@ -9,6 +9,7 @@
 
 <!-- $userにすると重複し、layouts.loginの名前が置き換わるため$personalに変更 -->
 @forelse($users as $personal)
+    <img src="{{ asset('storage/images/'.$personal->images) }}">
     <p>{{ $personal -> username }}</p>
 
 @if($followed->contains('follow',$personal->id))
@@ -28,6 +29,7 @@
 
 @empty
     <p>結果はありませんでした</p>
+    <a href="/search">一覧表示へ戻る</a>
 @endforelse
 
 @endsection
