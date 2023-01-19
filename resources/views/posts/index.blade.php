@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="message-all">
-    <div class="img-box">
+    <div class="img-box imgs">
         <img src="{{ asset('storage/images/'.$user->images) }}">
     </div>
     <div class="message-box">

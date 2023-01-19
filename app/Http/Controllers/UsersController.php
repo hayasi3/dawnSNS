@@ -87,7 +87,7 @@ class UsersController extends Controller
     }
 
     public function otherProfile($id){
-        $user = DB::table('users')
+        $other_user = DB::table('users')
         ->leftjoin('posts','users.id','posts.user_id')
         ->leftjoin('follows','users.id','follows.follow')
         ->select('users.*','posts.posts','follows.follow','follows.follower')
@@ -110,7 +110,11 @@ class UsersController extends Controller
         ->where('follow',Auth::id())
         ->count();
 
-        return view('users.otherProfile',compact('user','id','followed','follow_count','follower_count'));
+        $user = DB::table('users')
+        ->where('id',Auth::id())
+        ->first();
+
+        return view('users.otherProfile',compact('other_user','id','followed','follow_count','follower_count','user'));
     }
 
     public function search(Request $request){
