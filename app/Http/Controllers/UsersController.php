@@ -135,7 +135,6 @@ class UsersController extends Controller
         $followed = DB::table('follows')
         ->where('follower',Auth::id())
         ->get();
-        // dd($followed);
 
         $follow_count = DB::table('follows')
         ->where('follower',Auth::id())

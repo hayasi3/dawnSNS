@@ -16,7 +16,7 @@
 
 {{ Form::label('パスワード') }}
 {{ Form::text('password',null,['class' => 'input']) }}
-{{ $errors->first('passward') }}
+{{ $errors->first('password') }}
 
 {{ Form::label('パスワード確認') }}
 {{ Form::text('password-confirm',null,['class' => 'input']) }}

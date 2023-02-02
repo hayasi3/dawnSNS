@@ -1,9 +1,7 @@
 @extends('layouts.login')
 
 @section('content')
-<form action="/post/follow-list" method="post">
-@csrf
-</form>
+
 
 @foreach($users as $otheruser)
 <a href="/other-prof/{{ $otheruser->id }}"><img src="storage/images/{{ $otheruser->images }}" alt="ユーザアイコン"></a>

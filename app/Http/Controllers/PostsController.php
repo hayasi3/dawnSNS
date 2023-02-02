@@ -61,4 +61,13 @@ class PostsController extends Controller
 
         return redirect('/top');
     }
+
+    public function test(){
+        $posts = DB::table('posts')
+            ->select('posts.id','posts.user_id','posts.posts','posts.created_at')
+            ->where('user_id',Auth::id())
+            ->get();
+
+        return view('posts.test',['posts'=>$posts]);
+    }
 }

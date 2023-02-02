@@ -60,4 +60,6 @@ Route::get('/other-prof/{id}', 'UsersController@otherProfile');
 
 Route::post('/post/upProfile', 'UsersController@upProfile');
 
+Route::get('/test', 'PostsController@test');
+
 });
