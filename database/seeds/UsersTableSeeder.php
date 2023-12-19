@@ -21,11 +21,21 @@ class UsersTableSeeder extends Seeder
         // ]);
 
         //複数データはfor文で記述
-        for ($i = 1; $i <= 5; $i++) {
+        DB::table('users')->insert([
+            'username'       => 'testuser1',
+            'mail'           => 'testuser1@gmail.com',
+            'password'       => Hash::make('testtest'),
+            'role'           => 'admin',
+            'created_at'     => now(),
+            'updated_at'     => now(),
+        ]);
+
+        for ($i = 2; $i <= 5; $i++) {
             DB::table('users')->insert([
                 'username'       => 'testuser' .$i,
                 'mail'           => 'testuser'.$i.'@gmail.com',
                 'password'       => Hash::make('testtest'),
+                'role'           => 'user',
                 'created_at'     => now(),
                 'updated_at'     => now(),
             ]);

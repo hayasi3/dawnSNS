@@ -114,7 +114,11 @@ class UsersController extends Controller
         ->where('id',Auth::id())
         ->first();
 
-        return view('users.otherProfile',compact('other_user','id','followed','follow_count','follower_count','user'));
+        $blocking = DB::table('blocks')
+        ->where('user_id',Auth::id())
+        ->get();
+
+        return view('users.otherProfile',compact('other_user','id','followed','follow_count','follower_count','user','blocking'));
     }
 
     public function search(Request $request){
@@ -150,6 +154,31 @@ class UsersController extends Controller
 
 
         return view('users.search',compact('users','user','followed','follow_count','follower_count'));
+    }
+
+    public function block_create(Request $request){
+        $id = $request->id;
+
+        DB::table('blocks')
+        ->insert([
+            'user_id'=>Auth::id(),
+            'block_id'=>$id,
+            'created_at'=>now(),
+        ]);
+
+        return back();
+    }
+
+    public function block_delete(Request $request){
+        $id = $request->id;
+
+        DB::table('blocks')
+        ->where([
+            'user_id'=>Auth::id(),
+            'block_id'=>$id,
+        ])->delete();
+
+        return back();
     }
 
 }

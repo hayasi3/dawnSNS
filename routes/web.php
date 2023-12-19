@@ -32,7 +32,7 @@ Route::get('/added', 'Auth\RegisterController@added');
 //ログイン中のページ
 Route::group(['middleware' => 'auth'], function () {
 
-Route::get('/top','PostsController@index');
+Route::get('/top','PostsController@index');//->middleware('can:admin');→URLに指定すると('can:admin')のadminしか/topにアクセスできないようにできる
 
 Route::get('/profile','UsersController@profile');
 
@@ -61,5 +61,53 @@ Route::get('/other-prof/{id}', 'UsersController@otherProfile');
 Route::post('/post/upProfile', 'UsersController@upProfile');
 
 Route::get('/test', 'PostsController@test');
+
+Route::get('/contact', 'ContactController@index')->name('index');
+
+//確認ページ
+Route::post('/contact/confirm', 'ContactController@confirm')->name('confirm');
+
+//送信完了ページ
+Route::post('/contact/send', 'ContactController@send')->name('send');
+
+//問合せ履歴ページ
+Route::get('/contact/history', 'ContactController@history')->name('history');
+
+//いいね機能
+Route::post('/favorite/create', 'PostsController@favorite_create');
+
+Route::post('/favorite/delete', 'PostsController@favorite_delete');
+
+Route::get('/favorite', 'PostsController@favorite')->name('favorite');
+
+Route::get('/post/detail/{id}', 'PostsController@detail');
+
+Route::post('/comment/create', 'CommentsController@create');
+
+Route::delete('/comment/delete', 'CommentsController@delete');
+
+Route::put('/comment/update', 'CommentsController@update');
+
+Route::post('/block/create', 'UsersController@block_create');
+
+Route::post('/block/delete', 'UsersController@block_delete');
+
+Route::get('/mylist', 'MylistsController@index')->name('mylist');
+
+Route::post('/mylist/create', 'MylistsController@create');
+
+Route::delete('/mylist/delete', 'MylistsController@delete');
+
+Route::put('/mylist/update', 'MylistsController@update');
+
+Route::post('/detail/create', 'MylistsController@detail_create');
+
+Route::get('/mylist/detail/{id}', 'MylistsController@detail_index');
+
+Route::post('/detail/delete', 'MylistsController@detail_delete');
+
+Route::get('/ranking', 'PostsController@ranking')->name('ranking');
+
+Route::get('/ranking/week', 'PostsController@ranking_week')->name('ranking_week');
 
 });

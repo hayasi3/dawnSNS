@@ -69,6 +69,12 @@
                 <p class="btn"><a href="/follower-list"><input id="btn-type" type="submit" name="Follow-type2" value="フォロワーリスト"></a></p>
             </div>
             <p class="btn-search"><a href="/search"><input id="btn-type" type="submit" name="Follow-type2" value="ユーザー検索"></a></p>
+            <p class="btn-search"><a href="{{route('index')}}">お問合せフォーム</a></p>
+            <p class="btn-search"><a href="{{route('history')}}">お問合せ履歴</a></p>
+            <p class="btn-search"><a href="{{route('favorite')}}">いいね一覧画面</a></p>
+            <p class="btn-search"><a href="{{route('mylist')}}">マイリスト</a></p>
+            <p class="btn-search"><a href="{{route('ranking')}}">ランキング</a></p>
+            <p class="btn-search"><a href="{{route('ranking_week')}}">週間ランキング</a></p>
         </div>
     </div>
     <footer>

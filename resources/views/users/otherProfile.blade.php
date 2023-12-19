@@ -22,5 +22,20 @@
 </form>
 @endif
 
+@if($blocking->contains('block_id',$other_user->id))
+<form action="/block/delete" method="post">
+@csrf
+    <input type="hidden" name="id" value="{{$other_user->id}}">
+    <input type="submit" value="ブロックを解除する">
+</form>
+
+@else
+<form action="/block/create" method="post">
+@csrf
+    <input type="hidden" name="id" value="{{$other_user->id}}">
+    <input type="submit" value="ブロックする">
+</form>
+@endif
+
 
 @endsection

@@ -16,6 +16,13 @@
     </div>
 </div>
 
+
+@can('admin')
+<p>あなたは管理者ユーザーです</p>
+@else
+<p>あなたは一般ユーザーです</p>
+@endcan
+
 @foreach($posts as $post)
 <div class="post-all">
     <div class="user-img">
@@ -63,6 +70,45 @@
             @endif
         </div>
     </div>
+    <div>
+<form action="/post/detail/{{$post->id}}">
+<!-- method=getは書いても書かなくても問題ないが現場に寄って変わる -->
+@csrf
+    <input type="submit" value="詳細を表示">
+  </form>
+</div>
+<div>
+@if($favorite_exsits->contains('favorite_id',$post->id))
+<form action="/favorite/delete" method="post">
+@csrf
+    <input type="hidden" name="id" value="{{$post->id}}">
+    <input type="submit" value="いいねをはずす">
+  </form>
+@else
+<form action="/favorite/create" method="post">
+@csrf
+    <input type="hidden" name="id" value="{{$post->id}}">
+    <input type="submit" value="いいね">
+  </form>
+
+@endif
+</div>
+
+<div>
+    <form action="/detail/create" method="post">
+    @csrf
+        <input type="hidden" name="post_id" value="{{$post->id}}">
+        <select name="detail_id">
+            @forelse($mylists as $mylist)
+                <option value="{{$mylist->id}}">{{$mylist->name}}</option>
+                @empty
+                <option>リストが登録されていません</option>
+            @endforelse
+                <input type="submit" value="リストに登録">
+        </select>
+    </form>
+</div>
+
 </div>
 @endforeach
 @endsection
